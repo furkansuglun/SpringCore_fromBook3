@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+	
+
+	<bean id="bookBean"
+		class="_05.CallMethod.with.SprinEL.in.XML.Book">
+		<property name="bookISBN" value="1234567889"></property>
+		<property name="bookName" value="Alacakaranlık"></property>
+	</bean>
+	
+	<bean id="authorBean"
+		class="_05.CallMethod.with.SprinEL.in.XML.Author">
+		<property name="book" value="#{bookBean}"></property>
+		<property name="name" value="Stephane"></property>
+		<property name="bookName" value="#{bookBean.bookName}"></property>
+		<property name="surname" value="Meyer"></property>
+		<property name="info" value="#{bookBean.getBookInformation('Furkan' , 'Süğlün', 'javaxlog.blogspot.com' , 
+																	'3214123412123')}"></property>
+	</bean>
+</beans>
