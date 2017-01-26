@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     
 	
-	<bean id="numbersBean" class="_07.Operators.with.SpringEL.with.XML.Numbers">
+	<bean id="numbersBean" class="_07.Operators.in.SpringEL.with.XML.Numbers">
 		<property name="n1" value="12"/>
 		<property name="n2" value="17"/>
 		<property name="n3" value="45"/>
@@ -13,8 +13,23 @@
 		<property name="n5" value="6"/>
 	</bean>
 	
-	<bean id="operatorsBean" class="_07.Operators.with.SpringEL.with.XML.Operators">
-		<property name="equalTest"> value="#{numbersBean.n1 == 12}" </property>
+	<bean id="operatorsBean" class="_07.Operators.in.SpringEL.with.XML.Operators">
+		<property name="equalTest" value="#{numbersBean.n1 == 12}"> </property>
+		<property name="notEqualTest" value="#{numbersBean.n2 != numbersBean.n2}"> </property>
+		<property name="lessThanTest" value="#{numbersBean.n3 lt numbersBean.n1}"></property>
+		<property name="lessThanOrEqualTest" value="#{numbersBean.n4 le numbersBean.n2}"></property>
+		<property name="greaterThanTest" value="#{numbersBean.n5 > numbersBean.n5}"></property>
+		<property name="greaterThanOrEqualTest" value="#{numbersBean.n1 >= numbersBean.n3}"></property>
+		<property name="andTest" value="#{numbersBean.n2 == 17 and  numbersBean.n2 lt 17}"></property>
+		<property name="notTest" value="#{!(numbersBean.n4 == 123)}"></property>
+		<property name="orTest" value="#{numbersBean.n3 == 45 or numbersBean.n4 lt 123}"></property>
+		<property name="addTest" value="#{numbersBean.n5 + numbersBean.n2}"></property>
+		<property name="addStringTest" value="#{'Hello' + '.! ' + 'SpringEl'}"></property>
+		<property name="subtractionTest" value="#{numbersBean.n1 - numbersBean.n3 }"></property>
+		<property name="multiplicationTest" value="#{numbersBean.n2 * numbersBean.n4 }"></property>
+		<property name="divisionTest" value="#{numbersBean.n2 / numbersBean.n2 }"></property>
+		<property name="modulusTest" value="#{numbersBean.n4 % numbersBean.n1 }"></property>
+		<property name="exponentialPowerTest" value="#{numbersBean.n5 ^ 2 }"></property>
 	</bean>
 
 

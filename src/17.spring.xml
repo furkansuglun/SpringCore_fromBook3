@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+	
+	
+	<bean id="launchBean"
+		class="_17.Custom.Events.Handling.ContextEventLaunchHandler">
+	</bean>
+	<bean id="stopBean"
+		class="_17.Custom.Events.Handling.ContextEventStopHandler">
+	</bean>
+	<bean id="proverbsBean" class="_17.Custom.Events.Handling.Proverbs">
+		<property name="sentence"
+			value="Stretch your foot according to your quilt">
+		</property>
+	</bean>
+	<bean id="customEventHandlerBean"
+		class="_17.Custom.Events.Handling.CustomEventHandler">
+	</bean>
+	<bean id="customEventPublisherBean"
+		class="_17.Custom.Events.Handling.CustomEventPublisher">
+	</bean>
+	
+</beans>

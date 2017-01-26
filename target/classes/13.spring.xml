@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+	
+	
+	<bean id="sourceBean"
+		class="_13.RegularExpression.in.SpringEL.with.XML.Source">
+	</bean>
+	<bean id="listsBean"
+		class="_13.RegularExpression.in.SpringEL.with.XML.Lists">
+		<property name="mapMember"
+			value="#{sourceBean.map['Furkan Süğlün']}">
+		</property>
+		<property name="listMember" value="#{sourceBean.list[0]}"></property>
+	</bean>
+	<bean id="regExControlBean"
+		class="_13.RegularExpression.in.SpringEL.with.XML.RegExControl">
+		<property name="regEx"
+			value="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})$">
+		</property>
+		<property name="regExResult"
+			value="#{(sourceBean.map['Furkan Süğlün'] matches
+			 '^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})$' ) == true  ? 'APPROPRIATE' : 'INAPPROPRIATE' }">
+		</property>
+	</bean>
+</beans>
